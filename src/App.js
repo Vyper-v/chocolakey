@@ -2,9 +2,9 @@ import { Navbar } from "./components/NavBar";
 
 function App() {
   return (
-    <dis className="wrapper">
+    <div className="wrapper">
       <Navbar />
-    </dis>
+    </div>
   );
 }
 
