@@ -1,0 +1,9 @@
+.navbar{
+  @apply flex flex-wrap gap-size-0 md:justify-between justify-center items-baseline;
+}
+.navbar h1{
+  @apply text-size-2 font-bold;
+}
+.navbar ul {
+  @apply flex gap-base;
+}
