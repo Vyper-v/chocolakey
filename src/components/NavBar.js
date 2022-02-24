@@ -1,4 +1,13 @@
 import React from "react";
+import { BurgerMenu } from "./BurgerMenu";
+import { CartWidget } from "./CartWidget";
+
+const listItems = [
+  { url: "/products", data: "Products" },
+  { url: "/news", data: "News" },
+  { url: "/about", data: "About" },
+  { url: "/contact", data: "Contact" },
+];
 
 export const Navbar = () => {
   return (
@@ -6,20 +15,10 @@ export const Navbar = () => {
       <h1>
         <a href="/">Chocolakey</a>
       </h1>
-      <ul>
-        <li>
-          <a href="/products">Products</a>
-        </li>
-        <li>
-          <a href="/news">News</a>
-        </li>
-        <li>
-          <a href="/about">About us</a>
-        </li>
-        <li>
-          <a href="/contact">Contact</a>
-        </li>
-      </ul>
+      <div className="flex gap-base items-center">
+        <BurgerMenu listItems={listItems} />
+        <CartWidget />
+      </div>
     </nav>
   );
 };

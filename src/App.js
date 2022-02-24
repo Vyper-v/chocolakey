@@ -1,10 +1,16 @@
+import { ItemLIstContainer } from "./components/ItemLIstContainer";
 import { Navbar } from "./components/NavBar";
 
 function App() {
   return (
-    <dis className="wrapper">
-      <Navbar />
-    </dis>
+    <div className="flow">
+      <header className="wrapper">
+        <Navbar />
+      </header>
+      <main>
+        <ItemLIstContainer />
+      </main>
+    </div>
   );
 }
 

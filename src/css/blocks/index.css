@@ -1,2 +1,6 @@
-@import './box.css';
-@import './navbar.css';
+@import "tailwindcss/components";
+@layer components {
+  @import "./box.css";
+  @import "./navbar.css";
+  @import "./burger-menu.css";
+}
