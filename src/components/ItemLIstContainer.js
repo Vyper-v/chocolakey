@@ -10,7 +10,7 @@ export const ItemLIstContainer = () => {
     res.then((x) => {
       setData(x);
     });
-  }, [res, data]);
+  }, [data]);
 
   return (
     <ul className="[ cluster justify-center ] [ mx-auto ]">
