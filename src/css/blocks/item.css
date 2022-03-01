@@ -1,0 +1,41 @@
+.item {
+  @apply overflow-hidden relative flex flex-col gap-size-0 justify-center items-center rounded shadow bg-gray-200;
+}
+
+.item img {
+  @apply w-full md:w-96;
+}
+
+.item footer {
+  @apply flex justify-between self-start w-full text-size-1 p-base;
+}
+
+.item header {
+  @apply relative;
+}
+
+.item footer * {
+  @apply rounded-full px-3 py-1 capitalize font-semibold text-size-0;
+}
+
+.item-name {
+  @apply bg-gray-300;
+}
+
+.item-price {
+  @apply bg-emerald-300;
+}
+
+.item .buttons {
+  @apply absolute flex items-center bottom-0 right-0;
+}
+.item .buttons > *{
+  @apply filter grayscale;
+}
+.item .buttons .counter {
+  @apply rounded font-bold bg-gray-200 align-middle text-center text-base px-size-0;
+}
+
+.item .buttons .icon {
+  @apply fill-gray-200 filter drop-shadow;
+}

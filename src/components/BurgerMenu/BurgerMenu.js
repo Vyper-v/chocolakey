@@ -1,19 +1,13 @@
 import React, { useState } from "react";
+import { MenuIcon } from '@heroicons/react/solid'
 
 export const BurgerMenu = ({ listItems }) => {
-  const [visibility, setVisibility] = useState(window.innerWidth > 768);
-  const handleVisibility = () => {
-    setVisibility(!visibility);
-  };
-
 
   return (
-    
     <div className="burger-menu">
-      <button onClick={handleVisibility}>
-        <img src="/assets/svg/burger-menu.svg" alt="burger menu icon" />
+      <button >
+        <MenuIcon />
       </button>
-      {visibility && (
         <ul>
           {listItems.map(({ data, url }, i) => (
             <li key={i}>
@@ -21,8 +15,6 @@ export const BurgerMenu = ({ listItems }) => {
             </li>
           ))}
         </ul>
-      )}
-      
     </div>
   );
 };

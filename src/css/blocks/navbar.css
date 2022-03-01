@@ -2,5 +2,5 @@
   @apply flex flex-wrap justify-between items-center
 }
 .navbar h1{
-  @apply text-size-2 font-bold;
+  @apply text-size-2 font-bold text-center align-middle;
 }
