@@ -7,7 +7,7 @@ const getData = async (size = 3) => {
   // const url = `https://www.themealdb.com/api/json/v1/1/filter.php?c=Dessert`;
   // const response = await fetch(url);
   // const data = await response.json();
-  return shuffle(meals).slice(0, size)
+  return shuffle(meals).slice(0, size);
 };
 
 getData.propTypes = {

@@ -15,7 +15,7 @@ export const ItemLIstContainer = () => {
 
   return (
     <ul className="[ cluster justify-center ] [ mx-auto ]">
-      {data.map((props,i) => (
+      {data.map((props, i) => (
         <Item key={i} {...props} />
       ))}
     </ul>

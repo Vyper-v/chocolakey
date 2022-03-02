@@ -1,9 +1,10 @@
 import { PlusCircleIcon, MinusCircleIcon } from "@heroicons/react/solid";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useCounter } from "../hooks/useCounter";
+
 export const Item = ({ strMeal, strMealThumb, idMeal }) => {
   const { counter, increment, decrement } = useCounter(1, 0, 10);
-  const [price, setPrice] = useState(Math.floor(5 + Math.random() * 10));
+  const price = useState(Math.floor(5 + Math.random() * 10));
 
   return (
     <li key={idMeal} className="item">
