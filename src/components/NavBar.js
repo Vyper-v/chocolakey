@@ -1,6 +1,6 @@
 import React from "react";
-import { BurgerMenu } from "./BurgerMenu/BurgerMenu";
-import { CartWidget } from "./CartWidget/CartWidget";
+import { BurgerMenu } from "./BurgerMenu";
+import { CartWidget } from "./CartWidget";
 
 const listItems = [
   { url: "/products", data: "Products" },

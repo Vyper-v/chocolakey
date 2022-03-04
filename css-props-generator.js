@@ -25,7 +25,7 @@ const generateCSSProps = () => {
   // Loop each group's keys, use that and the associated
   // property to define a :root custom prop
   groups.forEach(({ key, prefix }) => {
-    const group = config.theme[key];
+    const group = config.theme[key] || config.theme.extend[key];
 
     if (!group) {
       return;
