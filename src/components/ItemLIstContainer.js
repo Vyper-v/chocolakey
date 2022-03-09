@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import getData from "../helpers/getData";
-import { Item } from "./Item";
+import { ItemList } from "./ItemList";
 
 const res = getData(9);
 
@@ -13,11 +13,5 @@ export const ItemLIstContainer = () => {
     });
   }, [data]);
 
-  return (
-    <ul className="[ cluster justify-center ] [ mx-auto ]">
-      {data.map((props, i) => (
-        <Item key={i} {...props} />
-      ))}
-    </ul>
-  );
+  return <ItemList data={data} />;
 };
