@@ -8,6 +8,9 @@ const getData = async (size = 3) => {
   // const response = await fetch(url);
   // const data = await response.json();
   return new Promise((res, rej) => {
+    if(!meals){
+      rej(new Error("No data"));
+    }
     setTimeout(() => {
       res(shuffle(meals).slice(0, size));
     }, 2000);
