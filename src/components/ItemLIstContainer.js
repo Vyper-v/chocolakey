@@ -2,20 +2,18 @@ import React, { useEffect, useState } from "react";
 import getData from "../helpers/getData";
 import { ItemList } from "./ItemList";
 
-const res = getData(9);
-function isEmpty(array) {
-  return array.length === 0;
-}
+const isEmpty = (array) => array.length === 0;
+const res = getData(8);
+
 export const ItemLIstContainer = () => {
   const [data, setData] = useState([]);
 
   useEffect(() => {
     res
-      .then((x) => {
-        setData(x);
+      .then((meals) => {
+        setData(meals);
       })
       .catch((err) => {
-        setData([]);
         throw err;
       });
   }, [data]);

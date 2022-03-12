@@ -1,11 +1,11 @@
 import React from 'react'
-import { Item } from './Item'
+import { ItemDetailContainer } from './ItemDetailContainer'
 
 export const ItemList = ({data}) => {
   return (
     <ul className="[ cluster justify-center ] [ mx-auto ]">
-      {data.map((props, i) => (
-        <Item key={i} {...props} />
+      {data.map((id, i) => (
+        <ItemDetailContainer key={i} id={id} />
       ))}
     </ul>
   )

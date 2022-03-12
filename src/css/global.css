@@ -79,7 +79,3 @@ button[data-type="icon"]{
 button > svg{
   @apply w-7 h-7;
 }
-
-:focus {
-  @apply outline-none rounded bg-gray-200 shadow;
-}

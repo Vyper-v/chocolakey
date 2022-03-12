@@ -1,13 +1,11 @@
-import { useState } from "react";
 import { ItemCount } from "./ItemCount";
 
-export const Item = ({ strMeal, strMealThumb, idMeal }) => {
-  const price = useState(Math.floor(5 + Math.random() * 10));
+export const ItemDetail = ({ strMeal, strMealThumb, idMeal, price }) => {
 
   return (
     <li key={idMeal} className="item">
       <header>
-        <img src={strMealThumb} alt={strMeal} />
+        <img src={strMealThumb} alt={strMeal} loading="lazy" />
         <ItemCount stock={4}/>
       </header>
       <footer>
