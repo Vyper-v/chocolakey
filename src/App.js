@@ -1,14 +1,11 @@
-import { ItemLIstContainer } from "components/Item/ItemLIstContainer";
-import { Navbar } from "components/NavBar";
+import { BrowserRouter } from "react-router-dom";
+import { AppRouter } from "routes/AppRouter";
 
 const App = () => {
   return (
-    <div className="flow">
-      <header className="wrapper">
-        <Navbar />
-      </header>
-        <ItemLIstContainer />
-    </div>
+    <BrowserRouter className="flow">
+      <AppRouter />
+    </BrowserRouter>
   );
 };
 

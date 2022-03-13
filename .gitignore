@@ -10,6 +10,7 @@
 
 # production
 /build
+/src/css/custom-props.css
 
 # misc
 .DS_Store
