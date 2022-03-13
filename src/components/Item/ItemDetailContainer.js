@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import getDataByID from "../helpers/getDataByID";
+import getDataByID from "helpers/getDataByID";
 import { ItemDetail } from "./ItemDetail";
 
 export const ItemDetailContainer = ({ id }) => {
