@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { BurgerMenu } from "./BurgerMenu";
 import { CartWidget } from "./CartWidget";
 
@@ -13,7 +14,7 @@ export const Navbar = () => {
   return (
     <nav className="navbar">
       <h1>
-        <a href="/">Chocolakey</a>
+        <Link to="/">Chocolakey</Link>
       </h1>
       <div className="flex gap-base items-center">
         <BurgerMenu listItems={listItems} />

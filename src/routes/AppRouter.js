@@ -13,7 +13,14 @@ export const AppRouter = () => {
         <Route path="/" element={<ItemLIstContainer />} />
         <Route path="/category/:id" element={<ItemLIstContainer />} />
         <Route path="/products" element={<ItemLIstContainer />} />
-        <Route path="/item/:id" element={<ItemDetailContainer />} />
+        <Route
+          path="/item/:id"
+          element={
+            <div className="flex justify-center p-size-3">
+              <ItemDetailContainer />
+            </div>
+          }
+        />
       </Routes>
     </>
   );

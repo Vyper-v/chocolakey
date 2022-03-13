@@ -1,3 +1,4 @@
+import { ArrowsExpandIcon, ArrowSmLeftIcon } from "@heroicons/react/solid";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { ItemCount } from "./ItemCount";
 
@@ -7,30 +8,29 @@ export const ItemDetail = ({ strMeal, strMealThumb, idMeal, price }) => {
   const myPath = `/item/${idMeal}`;
 
   return (
-    <li key={idMeal} className="item">
+    <div key={idMeal} className="item">
       <header>
         <img src={strMealThumb} alt={strMeal} loading="lazy" />
-        <ItemCount />
         {pathname === myPath ? (
           <button
             onClick={() => navigate(-1)}
-            className="absolute top-2 right-5 text-sm font-semibold border-gray-200 text-gray-200"
+            className="absolute top-2 right-5 text-sm font-semibold border-gray-300 text-gray-300 drop-shadow"
           >
-            back
+            <ArrowSmLeftIcon className="w-5 h-5 " />
           </button>
         ) : (
-          <Link
-            to={myPath}
-            className="absolute top-2 right-5 text-sm text-gray-200"
-          >
-            View more
-          </Link>
+          <>
+            <Link to={myPath} className="absolute top-2 right-2 text-gray-300">
+              <ArrowsExpandIcon className="w-5 h-5 drop-shadow" />
+            </Link>
+            <ItemCount />
+          </>
         )}
       </header>
       <footer>
         <span className="item-name">{strMeal}</span>
         <span className="item-price">$ {price}</span>
       </footer>
-    </li>
+    </div>
   );
 };
