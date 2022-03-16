@@ -3,7 +3,7 @@ import { AppRouter } from "routes/AppRouter";
 
 const App = () => {
   return (
-    <BrowserRouter className="flow">
+    <BrowserRouter>
       <AppRouter />
     </BrowserRouter>
   );

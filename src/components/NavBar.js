@@ -4,10 +4,10 @@ import { BurgerMenu } from "./BurgerMenu";
 import { CartWidget } from "./CartWidget";
 
 const listItems = [
-  { url: "/products", data: "Products" },
-  { url: "/news", data: "News" },
-  { url: "/about", data: "About" },
-  { url: "/contact", data: "Contact" },
+  { url: "/section/products", data: "Products" },
+  { url: "/section/news", data: "News" },
+  { url: "/section/about", data: "About" },
+  { url: "/section/contact", data: "Contact" },
 ];
 
 export const Navbar = () => {
