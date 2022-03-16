@@ -53,7 +53,6 @@ module.exports = {
       scrollMargin: ({ theme }) => ({
         ...theme("spacing"),
       }),
-      textColor: ({ theme }) => theme("colors"),
       zIndex: {
         auto: "auto",
         0: "0",
