@@ -18,6 +18,6 @@ export const SectionContainer = () => {
       );
 
     default:
-      return <div>Section in process</div>;
+      return <div>Section in process 🧩🛠️</div>;
   }
 };
