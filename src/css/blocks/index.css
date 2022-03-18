@@ -4,5 +4,7 @@
   @import "./navbar.css";
   @import "./burger-menu.css";
   @import "./item.css";
+  @import "./item-detail.css";
+  @import "./item-count.css";
   @import "./cartwidget.css";
 }

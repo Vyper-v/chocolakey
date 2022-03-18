@@ -1,6 +1,6 @@
 import React from "react";
 import { useCounter } from "hooks/useCounter";
-import { PlusCircleIcon, MinusCircleIcon } from "@heroicons/react/solid";
+import { PlusCircleIcon, MinusCircleIcon } from "@heroicons/react/outline";
 
 export const ItemCount = ({
   initial = 1,

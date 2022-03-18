@@ -1,0 +1,13 @@
+.buttons {
+  @apply flex items-center;
+}
+.buttons > *{
+  @apply filter grayscale;
+}
+.buttons .counter {
+  @apply rounded border-2 border-black font-bold bg-gray-50 align-middle text-center text-base px-size-0;
+}
+
+.buttons .icon {
+  @apply fill-gray-50;
+}

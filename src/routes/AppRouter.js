@@ -1,3 +1,4 @@
+import { SectionContainer } from "components/SectionContainer";
 import { ItemDetailContainer } from "components/Item/ItemDetailContainer";
 import { ItemLIstContainer } from "components/Item/ItemLIstContainer";
 import { Navbar } from "components/NavBar";
@@ -21,6 +22,7 @@ export const AppRouter = () => {
         >
           <Route path="category/:id" element={<ItemLIstContainer />} />
         </Route>
+        <Route path="/section/:section" element={<SectionContainer />} />
         <Route path="/item/:id" element={<ItemDetailContainer />} />
       </Routes>
     </div>

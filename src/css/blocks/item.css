@@ -29,13 +29,3 @@
 .item .buttons {
   @apply absolute flex items-center bottom-0 right-0;
 }
-.item .buttons > *{
-  @apply filter grayscale;
-}
-.item .buttons .counter {
-  @apply rounded font-bold bg-gray-300 align-middle text-center text-base px-size-0;
-}
-
-.item .buttons .icon {
-  @apply fill-gray-300 filter drop-shadow;
-}

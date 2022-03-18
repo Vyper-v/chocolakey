@@ -14,7 +14,7 @@ export const Navbar = () => {
   return (
     <nav className="navbar">
       <h1>
-        <Link to="/">Chocolakey</Link>
+        <Link to="/">useSpices( 🍲 )</Link>
       </h1>
       <div className="flex gap-base items-center">
         <BurgerMenu listItems={listItems} />

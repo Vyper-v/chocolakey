@@ -3,8 +3,7 @@
 @import "reset.css";
 /* Global styles */
 body {
-  padding: var(--space-size-2) var(--space-size-1);
-  @apply bg-light text-dark text-size-1 font-sans;
+  @apply bg-light text-dark text-size-1 font-sans px-size-0 py-size-1;
 }
 
 h1,
@@ -76,6 +75,6 @@ button[data-type="icon"]{
   @apply border-none;
 }
 
-button > svg{
-  @apply w-7 h-7;
+svg{
+  @apply w-6 h-6;
 }

@@ -1,0 +1,21 @@
+.item-detail {
+  @apply overflow-hidden relative flex justify-center flex-wrap gap-size-0 p-size-0 rounded shadow bg-gray-200;
+}
+
+.item-detail img {
+ @apply md:float-left m-size-1 rounded-full w-64;
+ shape-outside:circle(50%)
+}
+
+.item-detail p {
+  @apply break-words;
+}
+
+.item-detail .info{
+  @apply space-y-4;
+}
+
+.item-detail .buy{
+
+  @apply order-2 flex flex-col items-center gap-size-0 border-double border-2 border-black self-start p-size-1 rounded;
+}
