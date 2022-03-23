@@ -14,12 +14,12 @@
   @apply md:border-none md:static md:flex-row md:shadow-none;
 }
 
+.burger-menu ul li {
+  @apply text-lg font-semibold;
+}
 /*
 (optional styles)
 
-.burger-menu ul li {
-  @apply border-2 border-dark rounded px-1 text-dark font-semibold;
-}
 .burger-menu ul:before {
   content: "";
   top: -0.5rem;

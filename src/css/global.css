@@ -2,8 +2,11 @@
 @import "custom-props.css";
 @import "reset.css";
 /* Global styles */
+html {
+  @apply scroll-smooth;
+}
 body {
-  @apply bg-light text-dark text-size-1 font-sans px-size-0 py-size-1;
+  @apply bg-light text-dark text-size-1 font-sans;
 }
 
 h1,
@@ -71,10 +74,27 @@ input[type="submit"] {
   @apply rounded-md border-2 border-dark p-2;
 }
 
-button[data-type="icon"]{
+button[data-type="icon"] {
   @apply border-none;
 }
 
-svg{
+svg {
   @apply w-6 h-6;
+}
+
+::selection {
+  @apply text-light bg-primary rounded;
+}
+
+::-webkit-scrollbar {
+  @apply w-3 h-3;
+}
+
+
+::-webkit-scrollbar-thumb {
+  @apply bg-gray-300 rounded-full;
+}
+
+::-webkit-scrollbar-thumb:active {
+  @apply bg-primary;
 }

@@ -11,15 +11,43 @@ const getMealByID = async (idMeal) => {
     strArea,
     strInstructions,
     strMealThumb,
-   } = meals;
+    strTags,
+  } = meals;
+
+  // parse instructions
+  const strInstructionsArray = strInstructions
+    .split(/\n/) // Split the string by new line
+    .map((step) => step.replace(/\d\./, "")) // remove numbers from steps
+    .filter((step) => step.trim() !== ""); // remove empty steps
+
+  // parse ingredients
+  const ingredients = [];
+  for (let i = 1; i <= 20; i++) {
+    const strIngredient = meals[`strIngredient${i}`];
+    const strMeasure = meals[`strMeasure${i}`];
+    if (isNaN(strIngredient)) {
+      // "" and null is parsed to a number
+      ingredients.push({
+        ingredient: strIngredient,
+        measure: strMeasure,
+      });
+    }
+  }
+  // parse tags
+  const strTagsArray =  strTags?.split(",");
+  // generate random price
+  const price = Math.floor(Math.random() * 90 + 10);
 
   return {
     strMeal,
     strDrinkAlternate,
     strCategory,
     strArea,
-    strInstructions,
+    strInstructionsArray,
+    strTagsArray,
     strMealThumb,
+    ingredients,
+    price,
   };
 };
 

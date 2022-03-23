@@ -1,10 +1,10 @@
 .carticon {
-@apply relative;
+  @apply relative;
 }
-.carticon > svg{
-@apply fill-dark;
-}
+/* .carticon > svg {
+  @apply fill-dark;
+} */
 
 .count {
-  @apply absolute bottom-1 right-1 bg-orange-400 text-gray-200 rounded-full text-size-0 font-semibold w-4 h-4 text-center align-middle flex justify-center items-center;
+  @apply absolute bottom-1 right-1 bg-secondary text-light rounded-full text-size-0 font-semibold w-4 h-4 text-center align-middle flex justify-center items-center;
 }

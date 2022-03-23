@@ -12,8 +12,7 @@ export const ItemDetailContainer = () => {
     setLoading(true);
     getMealByID(id)
       .then((data) => {
-        const price = Math.floor(Math.random() * 40);
-        setItemProps({ ...data, price });
+        setItemProps(data);
       })
       .catch((err) => {
         throw err;

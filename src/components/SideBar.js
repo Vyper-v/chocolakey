@@ -3,13 +3,13 @@ import { NavLink } from "react-router-dom";
 
 export const SideBar = ({ categories }) => {
   return (
-    <div className="flex flex-col gap-2 flex-shrink flex-grow-0">
+    <div className="flex flex-col gap-size-0 flex-shrink flex-grow-0 bg-primary rounded-tr p-size-0 min-h-screen">
       {categories.map((category) => (
         <div key={category}>
           <NavLink
             to={`/category/${category}`}
             className={({ isActive }) =>
-              isActive ? "font-bold" : "font-normal opacity-40"
+              isActive ? "font-bold text-light" : "font-normal opacity-80 text-light"
             }
           >
             {category}

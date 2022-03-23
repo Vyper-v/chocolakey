@@ -1,5 +1,9 @@
 .navbar{
-  @apply flex flex-wrap justify-between items-center
+  @apply flex flex-wrap justify-between px-size-2 items-center;
+}
+
+.navbar ul li{
+  @apply active:text-primary;
 }
 .navbar h1{
   @apply text-size-2 font-bold text-center align-middle;

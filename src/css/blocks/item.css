@@ -7,7 +7,7 @@
 }
 
 .item footer {
-  @apply flex justify-between self-start w-full text-size-1 p-base;
+  @apply flex flex-wrap justify-between self-start w-full text-size-1 p-base;
 }
 
 .item header {
@@ -19,11 +19,11 @@
 }
 
 .item-name {
-  @apply bg-gray-300;
+  @apply bg-orange-300;
 }
 
 .item-price {
-  @apply bg-emerald-300;
+  @apply bg-teal-400;
 }
 
 .item .buttons {
