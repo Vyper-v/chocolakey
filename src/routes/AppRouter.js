@@ -5,10 +5,11 @@ import { Navbar } from "components/NavBar";
 import { Route, Routes } from "react-router-dom";
 import { ProductsScreen } from "./ProductsScreen";
 import { Cart } from "components/Cart";
+import { CartProvider } from "context/CartContext";
 
 export const AppRouter = () => {
   return (
-    <>
+    <CartProvider>
       <Navbar />
 
       <Routes>
@@ -19,6 +20,6 @@ export const AppRouter = () => {
         <Route path="/item/:id" element={<ItemDetailContainer />} />
         <Route path="/cart" element={<Cart />} />
       </Routes>
-    </>
+    </CartProvider>
   );
 };

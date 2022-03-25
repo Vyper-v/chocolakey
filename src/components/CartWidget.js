@@ -1,19 +1,20 @@
+import { useContext, useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import { ShoppingBagIcon } from "@heroicons/react/solid";
-import { useNavigate } from "react-router-dom";
+import { CartContext } from "context/CartContext";
+
 export const CartWidget = () => {
-  const navigate = useNavigate();
-  const handleNavigate = () => {
-    navigate("/cart");
-  };
+  const { cart } = useContext(CartContext);
+  const [total, setTotal] = useState(cart.length);
+
+  useEffect(() => {
+    setTotal(cart.length);
+  }, [cart]);
+
   return (
-    <button
-      onClick={handleNavigate}
-      type="button"
-      data-type="icon"
-      className="carticon"
-    >
+    <Link to="/cart" className="carticon">
       <ShoppingBagIcon />
-      <span className="count">{0}</span>
-    </button>
+      <span className="count">{total}</span>
+    </Link>
   );
 };

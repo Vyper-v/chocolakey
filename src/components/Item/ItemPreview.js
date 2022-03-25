@@ -1,6 +1,5 @@
 import { ArrowsExpandIcon } from "@heroicons/react/solid";
 import { Link } from "react-router-dom";
-import { ItemCount } from "./ItemCount";
 
 export const ItemPreview = ({ idMeal, strMeal, strMealThumb, price }) => {
   return (
@@ -11,7 +10,6 @@ export const ItemPreview = ({ idMeal, strMeal, strMealThumb, price }) => {
           <span className="tooltip text-sm -ml-10 bg-light rounded px-1">View</span>
           <ArrowsExpandIcon className="hover:drop-shadow"/>
         </Link>
-        <ItemCount />
       </header>
       <footer>
         <span className="item-name">{strMeal}</span>

@@ -1,8 +1,10 @@
-import { useState } from "react";
+import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { ItemCount } from "./ItemCount";
+import { CartContext } from "context/CartContext";
 
 export const ItemDetail = ({
+  idMeal,
   strMeal,
   strMealThumb,
   strCategory,
@@ -10,18 +12,21 @@ export const ItemDetail = ({
   strInstructionsArray,
   strTagsArray,
   price,
+  stock,
   ingredients,
 }) => {
-  const [visibleCount, setVisibleCount] = useState(true);
+  const { actions } = useContext(CartContext);
   const navigate = useNavigate();
+  const cartData = { idMeal, strMeal, price, quantity: 1 };
+
   const handleAddToCart = (e) => {
     e.preventDefault();
-    setVisibleCount(false);
+    actions.addToCart(cartData);
   };
 
   const handleBuyNow = (e) => {
     e.preventDefault();
-    // le puse un delay para que se vea que desaparece el counter
+    actions.addToCart(cartData);
     navigate("/cart");
   };
 
@@ -47,24 +52,30 @@ export const ItemDetail = ({
         </div>
         <form className="buy-item" onSubmit={handleAddToCart}>
           <h2>Are you lazy to cook?</h2>
-          <h3 className="item-price px-3 py-1 rounded text-gray-200">
-            $ {price}
-          </h3>
-          {!visibleCount && <span>Porque me hacen hacer estoooo</span>}
-          {visibleCount && <ItemCount />}
-          {/* Desafio Sincronizar Counter */}
-          <button
-            type="submit"
-            className="bg-secondary text-light border-none active:bg-black"
-          >
-            Add to cart
-          </button>
-          <button
-            className="bg-primary text-light border-none active:bg-black"
-            onClick={handleBuyNow}
-          >
-            Buy now
-          </button>
+          <ItemCount
+            onDecrement={(counter) => actions.updateItem(idMeal, counter - 1)}
+            onIncrement={(counter) => actions.updateItem(idMeal, counter + 1)}
+            condition={stock !== 0}
+          />
+
+          <div className="flex flex-wrap gap-size-0">
+            <h3 className="item-price px-3 py-1 rounded text-gray-200 text-center">
+              $ {price}
+            </h3>
+            <button
+              type="submit"
+              className="bg-secondary text-light border-none active:bg-black"
+              onClick={handleAddToCart}
+            >
+              Add to cart
+            </button>
+            <button
+              className="bg-primary text-light border-none active:bg-black"
+              onClick={handleBuyNow}
+            >
+              Buy now
+            </button>
+          </div>
         </form>
       </div>
 

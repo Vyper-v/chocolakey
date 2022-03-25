@@ -13,7 +13,6 @@ const getMealByID = async (idMeal) => {
     strMealThumb,
     strTags,
   } = meals;
-
   // parse instructions
   const strInstructionsArray = strInstructions
     .split(/\n/) // Split the string by new line
@@ -34,11 +33,14 @@ const getMealByID = async (idMeal) => {
     }
   }
   // parse tags
-  const strTagsArray =  strTags?.split(",");
+  const strTagsArray = strTags?.split(",");
   // generate random price
   const price = Math.floor(Math.random() * 90 + 10);
+  // generate random stock
+  const stock = Math.floor(Math.random() * 40);
 
   return {
+    idMeal,
     strMeal,
     strDrinkAlternate,
     strCategory,
@@ -48,6 +50,7 @@ const getMealByID = async (idMeal) => {
     strMealThumb,
     ingredients,
     price,
+    stock
   };
 };
 

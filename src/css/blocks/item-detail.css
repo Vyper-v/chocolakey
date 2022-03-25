@@ -20,7 +20,7 @@
 }
 
 .item-info .buy-item {
-  @apply clear-both flex flex-col items-center justify-center gap-size-0 border-double border-2 border-black  p-size-1 rounded;
+  @apply clear-both flex flex-col items-center gap-size-0 border-double border-2 border-black  p-size-1 rounded;
   box-shadow: 5px 5px 0px 1px theme("colors.black"),
     10px 10px 0px 1px theme("colors.primary"),
     15px 15px 0px 1px theme("colors.secondary");
