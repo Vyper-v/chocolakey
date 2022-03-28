@@ -1,4 +1,4 @@
-import API_URLS from "utilities/API_URLS";
+import { API_URLS } from "utilities";
 
 const getMealByID = async (idMeal) => {
   const response = await fetch(API_URLS.mealDetails(idMeal));
@@ -50,7 +50,7 @@ const getMealByID = async (idMeal) => {
     strMealThumb,
     ingredients,
     price,
-    stock
+    stock,
   };
 };
 

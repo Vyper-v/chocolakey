@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { ItemCount } from "./ItemCount";
 import { CartContext } from "context/CartContext";
@@ -17,7 +17,13 @@ export const ItemDetail = ({
 }) => {
   const { actions } = useContext(CartContext);
   const navigate = useNavigate();
-  const cartData = { idMeal, strMeal, price, quantity: 1 };
+  const [cartData, setCartData] = useState({
+    idMeal,
+    strMeal,
+    price,
+    quantity: 1,
+    stock,
+  });
 
   const handleAddToCart = (e) => {
     e.preventDefault();
@@ -53,9 +59,14 @@ export const ItemDetail = ({
         <form className="buy-item" onSubmit={handleAddToCart}>
           <h2>Are you lazy to cook?</h2>
           <ItemCount
-            onDecrement={(counter) => actions.updateItem(idMeal, counter - 1)}
-            onIncrement={(counter) => actions.updateItem(idMeal, counter + 1)}
-            condition={stock !== 0}
+            onDecrement={(counter) =>
+              setCartData({ ...cartData, quantity: counter })
+            }
+            onIncrement={(counter) =>
+              setCartData({ ...cartData, quantity: counter })
+            }
+            condition={stock > 0}
+            limit={stock}
           />
 
           <div className="flex flex-wrap gap-size-0">

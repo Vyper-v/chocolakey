@@ -7,13 +7,17 @@ export function useCounter({
   condition = true,
 }) {
   const [counter, setCounter] = useState(initial);
-  function increment(factor = 1) {
-    if ((rightLimit === false || counter < rightLimit) && condition)
+  function increment(customFn = () => {}, factor = 1) {
+    if ((rightLimit === false || counter < rightLimit) && condition) {
+      customFn(counter + factor);
       setCounter(counter + factor);
+    }
   }
-  function decrement(factor = 1) {
-    if ((leftLimit === false || counter > leftLimit) && condition)
+  function decrement(customFn = () => {}, factor = 1) {
+    if ((leftLimit === false || counter > leftLimit) && condition) {
+      customFn(counter - factor);
       setCounter(counter - factor);
+    }
   }
   const resetCounter = () => setCounter(initial);
   return { counter, increment, decrement, resetCounter };

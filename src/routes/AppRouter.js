@@ -4,7 +4,7 @@ import { ItemLIstContainer } from "components/Item/ItemLIstContainer";
 import { Navbar } from "components/NavBar";
 import { Route, Routes } from "react-router-dom";
 import { ProductsScreen } from "./ProductsScreen";
-import { Cart } from "components/Cart";
+import { Cart } from "components/Cart/Cart";
 import { CartProvider } from "context/CartContext";
 
 export const AppRouter = () => {

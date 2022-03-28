@@ -8,33 +8,39 @@ export const CartProvider = ({ children }) => {
 
   const actions = {
     isInCart(idMeal) {
-      const existingItem = cart.find((i) => i.idMeal === idMeal);
-      return existingItem ? true : false;
+      return !!cart.find((i) => i.idMeal === idMeal);
     },
     addToCart(item) {
-      const newCart = this.isInCart(item.idMeal)
-        ? this.updateItem(item.idMeal, item.quantity + 1)
-        : [...cart, item];
+      const { idMeal, quantity } = item;
+      // si el item existe en el carro, actualizar la cantidad
+      if (this.isInCart(idMeal)) {
+        return this.updateItem(idMeal, (i) => ({
+          ...i,
+          quantity: i.quantity + quantity,
+        }));
+      }
+      // si no existe, agregarlo al carro
+      const newCart = [...cart, item];
       setCart(newCart);
     },
     removeFromCart(idMeal) {
       const newCart = cart.filter((item) => item.idMeal !== idMeal);
       setCart(newCart);
     },
-    updateItem(idMeal, quantity) {
-      if (quantity <= 0) {
-        return this.removeFromCart(idMeal);
-      }
+    updateItem(idMeal, callback) {
+      // busca el item en el carro, y retorna un arreglo con el item actualizado
+
+      // callback es la funcion que modificara el item
 
       const newCart = cart.map((item) => {
-        return item.idMeal === idMeal ? { ...item, quantity } : item;
+        return item.idMeal === idMeal ? callback(item) : item;
       });
       setCart(newCart);
     },
     clear() {
       setCart([]);
     },
-    getTotal() {
+    getTotalPrice() {
       return cart.reduce((acc, { price, quantity }) => {
         return acc + price * quantity;
       }, 0);
@@ -42,14 +48,13 @@ export const CartProvider = ({ children }) => {
   };
 
   useEffect(() => {
-    const cartStorage = JSON.parse(localStorage.getItem("cart"));
-    if (cartStorage !== null) {
-      setCart(cartStorage);
-    }
-  }, []);
-
-  useEffect(() => {
     localStorage.setItem("cart", JSON.stringify(cart));
+
+    // cart.forEach(({ quantity, idMeal }) => {
+    //   if (quantity === 0) {
+    //     actions.removeFromCart(idMeal);
+    //   }
+    // });
   }, [cart]);
 
   return (

@@ -3,16 +3,16 @@ import { PlusCircleIcon, MinusCircleIcon } from "@heroicons/react/solid";
 
 export const ItemCount = ({
   initial = 1,
-  min = 1,
-  stock = Math.floor(40 * Math.random()),
+  leftLimit = -1,
+  stock = 0,
   onIncrement = () => {},
   onDecrement = () => {},
   condition = true,
 }) => {
   const { counter, increment, decrement } = useCounter({
     initial,
-    min,
-    stock,
+    leftLimit,
+    rightLimit: stock,
     condition,
   });
   return (
@@ -21,8 +21,7 @@ export const ItemCount = ({
         type="button"
         data-type="icon"
         onClick={() => {
-          decrement();
-          onDecrement(counter);
+          decrement(onDecrement);
         }}
       >
         <MinusCircleIcon className="icon" />
@@ -32,8 +31,7 @@ export const ItemCount = ({
         type="button"
         data-type="icon"
         onClick={() => {
-          increment();
-          onIncrement(counter);
+          increment(onIncrement);
         }}
       >
         <PlusCircleIcon className="icon" />

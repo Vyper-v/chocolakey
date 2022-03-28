@@ -13,6 +13,9 @@
 .item-info > * {
   @apply md:flex-1
 }
+.meal-info {
+  @apply space-y-1;
+}
 .item-info .meal-info img {
   @apply md:float-left md:w-96 rounded-xl mr-size-0;
   clip-path: polygon(0% 0%, 75% 0%, 100% 50%, 75% 100%, 0% 100%);
@@ -27,11 +30,11 @@
 }
 
 .item-recipe {
-  @apply flex gap-size-0;
+  @apply flex flex-wrap gap-size-0 items-stretch;
 }
 
 .item-recipe > * {
-  @apply space-y-size-0;
+  @apply space-y-size-0 grow shrink;
 }
 
 .item-recipe .ingredients {

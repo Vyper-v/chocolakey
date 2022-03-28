@@ -9,10 +9,10 @@ export const CartWidget = () => {
 
   useEffect(() => {
     setTotal(cart.length);
-  }, [cart]);
+  }, [cart,setTotal]);
 
   return (
-    <Link to="/cart" className="carticon">
+    <Link to={`/cart`} className="carticon">
       <ShoppingBagIcon />
       <span className="count">{total}</span>
     </Link>

@@ -1,4 +1,4 @@
-import API_URLS from "utilities/API_URLS";
+import {API_URLS} from "utilities";
 
 export default async function getCategories() {
   const res = await fetch(API_URLS.categoryNames);
