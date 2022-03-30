@@ -1,5 +1,6 @@
 import { TrashIcon } from "@heroicons/react/solid";
 import { ItemCount } from "components/Item/ItemCount";
+import { Link } from "react-router-dom";
 
 export const CartItem = ({ data }) => {
   const {
@@ -27,7 +28,9 @@ export const CartItem = ({ data }) => {
         />
       </div>
       <div className="flex flex-col items-start gap-size-0">
-        <h3>{strMeal}</h3>
+        <h3>
+          <Link to={`/item/${idMeal}`}>{strMeal}</Link>
+        </h3>
         <span className="item-price rounded-full px-3 py-1 capitalize font-semibold text-size-0 text-light text-center">
           $ {price}
         </span>

@@ -5,30 +5,30 @@ import { Link } from "react-router-dom";
 import { CartItem } from "./CartItem";
 
 export const Cart = () => {
-  const { cart, actions } = useContext(CartContext);
+  const { cart, updateItem, removeFromCart, getTotalPrice, clear } =
+    useContext(CartContext);
 
   const handleIncrement = (idMeal) =>
-    actions.updateItem(idMeal, (item) => ({
+    updateItem(idMeal, (item) => ({
       ...item,
       quantity: item.quantity + 1,
     }));
 
   const handleDecrement = (idMeal) =>
-    actions.updateItem(idMeal, (item) => {
-      if (item.quantity - 1 === 0) return actions.removeFromCart(idMeal);
+    updateItem(idMeal, (item) => {
       return {
         ...item,
         quantity: item.quantity - 1,
       };
     });
 
-  const handleRemove = (idMeal) => actions.removeFromCart(idMeal);
+  const handleRemove = (idMeal) => removeFromCart(idMeal);
 
   return (
     <div className="space-y-4">
       <h2>Cart</h2>
 
-      <div className="cluster min-h-[70vh] bg-gray-200">
+      <div className="cluster min-h-[70vh] bg-gray-200 items-start">
         {cart &&
           cart.map(({ idMeal, strMeal, price, quantity, stock }) => (
             <CartItem
@@ -47,17 +47,17 @@ export const Cart = () => {
           ))}
 
         {cart.length === 0 && (
-          <p>
+          <p className="mx-auto shrink self-center">
             Your cart is empty. Back to{" "}
-            <Link to="/" replace className="">
+            <Link to="/" replace className="underline">
               Home
             </Link>
           </p>
         )}
       </div>
 
-      {cart && <h3>Total: {actions.getTotalPrice()}</h3>}
-      <button onClick={() => actions.clear()}>
+      {cart && <h3>Total: {getTotalPrice()}</h3>}
+      <button onClick={() => clear()}>
         <TrashIcon />
       </button>
     </div>

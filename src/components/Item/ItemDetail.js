@@ -15,7 +15,7 @@ export const ItemDetail = ({
   stock,
   ingredients,
 }) => {
-  const { actions } = useContext(CartContext);
+  const { addToCart } = useContext(CartContext);
   const navigate = useNavigate();
   const [cartData, setCartData] = useState({
     idMeal,
@@ -27,12 +27,12 @@ export const ItemDetail = ({
 
   const handleAddToCart = (e) => {
     e.preventDefault();
-    actions.addToCart(cartData);
+    addToCart(cartData);
   };
 
   const handleBuyNow = (e) => {
     e.preventDefault();
-    actions.addToCart(cartData);
+    addToCart(cartData);
     navigate("/cart");
   };
 
@@ -65,8 +65,8 @@ export const ItemDetail = ({
             onIncrement={(counter) =>
               setCartData({ ...cartData, quantity: counter })
             }
-            condition={stock > 0}
-            limit={stock}
+            condition={stock !== 0}
+            stock={stock}
           />
 
           <div className="flex flex-wrap gap-size-0">

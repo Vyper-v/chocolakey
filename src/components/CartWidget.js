@@ -8,8 +8,9 @@ export const CartWidget = () => {
   const [total, setTotal] = useState(cart.length);
 
   useEffect(() => {
-    setTotal(cart.length);
-  }, [cart,setTotal]);
+    const totalItems = cart.reduce((acc, item) => acc + item.quantity, 0);
+    setTotal(totalItems);
+  }, [cart]);
 
   return (
     <Link to={`/cart`} className="carticon">
