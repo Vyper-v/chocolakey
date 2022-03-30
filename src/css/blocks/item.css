@@ -3,11 +3,11 @@
 }
 
 .item img {
-  @apply w-full md:w-96;
+  @apply w-full md:w-96 object-cover;
 }
 
 .item footer {
-  @apply flex flex-wrap justify-between self-start w-full text-size-1 p-base;
+  @apply flex flex-wrap justify-between gap-size-0 max-w-sm self-start w-full text-size-1 p-base;
 }
 
 .item header {

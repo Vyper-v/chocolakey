@@ -56,38 +56,41 @@ export const ItemDetail = ({
               ))}
           </div>
         </div>
-        <form className="buy-item" onSubmit={handleAddToCart}>
-          <h2>Are you lazy to cook?</h2>
-          <ItemCount
-            onDecrement={(counter) =>
-              setCartData({ ...cartData, quantity: counter })
-            }
-            onIncrement={(counter) =>
-              setCartData({ ...cartData, quantity: counter })
-            }
-            condition={stock !== 0}
-            stock={stock}
-          />
+        {stock === 0 && <h2>Out of stock</h2>}
+        {stock > 0 && (
+          <form className="buy-item" onSubmit={handleAddToCart}>
+            <h2>Are you lazy to cook?</h2>
+            <ItemCount
+              onDecrement={(counter) =>
+                setCartData({ ...cartData, quantity: counter })
+              }
+              onIncrement={(counter) =>
+                setCartData({ ...cartData, quantity: counter })
+              }
+              condition={stock !== 0}
+              stock={stock}
+            />
 
-          <div className="flex flex-wrap gap-size-0">
-            <h3 className="item-price px-3 py-1 rounded text-gray-200 text-center">
-              $ {price}
-            </h3>
-            <button
-              type="submit"
-              className="bg-secondary text-light border-none active:bg-black"
-              onClick={handleAddToCart}
-            >
-              Add to cart
-            </button>
-            <button
-              className="bg-primary text-light border-none active:bg-black"
-              onClick={handleBuyNow}
-            >
-              Buy now
-            </button>
-          </div>
-        </form>
+            <div className="flex flex-wrap gap-size-0">
+              <h3 className="item-price px-3 py-1 rounded text-gray-200 text-center">
+                $ {price}
+              </h3>
+              <button
+                type="submit"
+                className="bg-secondary text-light border-none active:bg-black"
+                onClick={handleAddToCart}
+              >
+                Add to cart
+              </button>
+              <button
+                className="bg-primary text-light border-none active:bg-black"
+                onClick={handleBuyNow}
+              >
+                Buy now
+              </button>
+            </div>
+          </form>
+        )}
       </div>
 
       <div className="item-recipe">

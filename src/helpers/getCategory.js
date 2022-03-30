@@ -10,12 +10,11 @@ async function getCategory(category, size = 8) {
   }
 
   const modifiedMeals = meals.map((meal) => {
-    // generate random price
-    const price = randomNumber(5, 15, true);
-    // generate random stock
-    const stock = randomNumber(0, 10, true);
-    const modMeal = { ...meal, price, stock };
-    return modMeal;
+    return {
+      ...meal,
+      price: randomNumber(5, 15),
+      stock: randomNumber(0, 10),
+    };
   });
   const partition = modifiedMeals.slice(0, size);
 

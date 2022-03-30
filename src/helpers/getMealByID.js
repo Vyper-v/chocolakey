@@ -1,4 +1,4 @@
-import { API_URLS } from "utilities";
+import { API_URLS, randomNumber } from "utilities";
 
 const getMealByID = async (idMeal) => {
   const response = await fetch(API_URLS.mealDetails(idMeal));
@@ -35,9 +35,9 @@ const getMealByID = async (idMeal) => {
   // parse tags
   const strTagsArray = strTags?.split(",");
   // generate random price
-  const price = Math.floor(Math.random() * 90 + 10);
+  const price = randomNumber(5, 15);
   // generate random stock
-  const stock = Math.floor(Math.random() * 40);
+  const stock = randomNumber(0, 10);
 
   return {
     idMeal,

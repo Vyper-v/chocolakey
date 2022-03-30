@@ -7,13 +7,12 @@ export const ItemLIstContainer = () => {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
   const { id } = useParams();
-  
+
   useEffect(() => {
     setLoading(true);
     getCategory(id || "Dessert")
       .then((meals) => {
-        const price = Math.floor(Math.random() * 40);
-        setData(meals.map((meal) => ({ ...meal, price })));
+        setData(meals);
       })
       .catch((err) => {
         throw err;
@@ -22,8 +21,6 @@ export const ItemLIstContainer = () => {
         setLoading(false);
       });
   }, [id]);
-
-  
 
   return !loading ? <ItemList data={data} /> : <div>Loading...</div>;
 };

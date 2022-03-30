@@ -3,7 +3,7 @@ import { PlusCircleIcon, MinusCircleIcon } from "@heroicons/react/solid";
 
 export const ItemCount = ({
   initial = 1,
-  leftLimit = 0,
+  leftLimit = 1,
   stock = 0,
   onIncrement = () => {},
   onDecrement = () => {},
