@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
-import getCategory from "helpers/getCategory";
 import { ItemList } from "./ItemList";
 import { useParams } from "react-router-dom";
+import { getCategory } from "🔥base/helpers/getCategory";
+import db from "🔥base/db";
 
 export const ItemLIstContainer = () => {
   const [data, setData] = useState([]);
@@ -10,7 +11,7 @@ export const ItemLIstContainer = () => {
 
   useEffect(() => {
     setLoading(true);
-    getCategory(id || "Dessert")
+    getCategory(db, id || "Dessert")
       .then((meals) => {
         setData(meals);
       })

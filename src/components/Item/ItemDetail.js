@@ -9,11 +9,12 @@ export const ItemDetail = ({
   strMealThumb,
   strCategory,
   strArea,
-  strInstructionsArray,
-  strTagsArray,
+  instructions,
+  tags,
   price,
   stock,
   ingredients,
+  measures,
 }) => {
   const { addToCart } = useContext(CartContext);
   const navigate = useNavigate();
@@ -47,9 +48,9 @@ export const ItemDetail = ({
             <span>{strCategory}</span>
             <h3 className="info__name">Area</h3>
             <span>{strArea}</span>
-            {strTagsArray && <h3 className="info__name">Tags</h3>}
-            {strTagsArray &&
-              strTagsArray.map((tag) => (
+            {tags && <h3 className="info__name">Tags</h3>}
+            {tags &&
+              tags.map((tag) => (
                 <span key={tag} className="block">
                   {tag}
                 </span>
@@ -97,7 +98,7 @@ export const ItemDetail = ({
         <div className="instructions">
           <h2>Cook it yourself</h2>
           <ol className="list-decimal list-inside flow">
-            {strInstructionsArray.map((p) => (
+            {instructions.map((p) => (
               <li key={crypto.randomUUID()}>{p}</li>
             ))}
           </ol>
@@ -105,10 +106,11 @@ export const ItemDetail = ({
         <div className="ingredients">
           <h2>Ingredients</h2>
           <div className="cluster">
-            {ingredients.map(({ ingredient, measure }) => (
+            {ingredients.map((ingredient, i) => (
               <div key={crypto.randomUUID()}>
                 <p className="rounded-full px-3 py-1 capitalize font-semibold bg-gray-300 ">
-                  {ingredient}: <span className="font-normal">{measure}</span>
+                  {ingredient}:{" "}
+                  <span className="font-normal">{measures.at(i)}</span>
                 </p>
               </div>
             ))}

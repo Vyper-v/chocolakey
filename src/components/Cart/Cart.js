@@ -1,7 +1,9 @@
 import { TrashIcon } from "@heroicons/react/solid";
 import { CartContext } from "context/CartContext";
+import { doc, updateDoc } from "firebase/firestore";
 import { useContext } from "react";
 import { Link } from "react-router-dom";
+import db from "🔥base/db";
 import { CartItem } from "./CartItem";
 
 export const Cart = () => {
@@ -23,6 +25,14 @@ export const Cart = () => {
     });
 
   const handleRemove = (idMeal) => removeFromCart(idMeal);
+
+  const handleCheckout = () => {
+    cart.forEach(async (item) => {
+      const docRef = doc(db, "previews", item.idMeal);
+      await updateDoc(docRef, { stock: item.stock - item.quantity });
+    });
+    clear();
+  };
 
   return (
     <div className="space-y-4">
@@ -60,6 +70,7 @@ export const Cart = () => {
       <button onClick={() => clear()}>
         <TrashIcon />
       </button>
+      <button onClick={handleCheckout}>checkout</button>
     </div>
   );
 };

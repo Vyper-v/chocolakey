@@ -37,9 +37,10 @@ export const useCart = (cartStorage) => {
     setCart([]);
   }
   function getTotalPrice() {
-    return cart.reduce((acc, { price, quantity }) => {
+    const total =cart.reduce((acc, { price, quantity }) => {
       return acc + price * quantity;
-    }, 0);
+    }, 0); 
+    return parseFloat(total.toFixed(2)) 
   }
 
   return {

@@ -1,18 +1,22 @@
-import { useEffect, useState } from "react";
-import getMealByID from "helpers/getMealByID";
+import { useContext, useEffect, useState } from "react";
 import { ItemDetail } from "./ItemDetail";
 import { useParams } from "react-router-dom";
+import { getItemDetails } from "🔥base/helpers/getItemDetails";
+import db from "🔥base/db";
+import { ItemContext } from "context/ItemContext";
 
 export const ItemDetailContainer = () => {
   const { id } = useParams();
+  const [itemPreviewProps] = useContext(ItemContext);
+
   const [loading, setLoading] = useState(true);
-  const [itemProps, setItemProps] = useState({});
+  const [itemDetailProps, setItemDetailProps] = useState({});
 
   useEffect(() => {
     setLoading(true);
-    getMealByID(id)
-      .then((data) => {
-        setItemProps(data);
+    getItemDetails(db, id)
+      .then((itemDetails) => {
+        setItemDetailProps({ idMeal: id, ...itemPreviewProps, ...itemDetails });
       })
       .catch((err) => {
         throw err;
@@ -20,6 +24,11 @@ export const ItemDetailContainer = () => {
       .finally(() => {
         setLoading(false);
       });
-  }, [id]);
-  return !loading ? <ItemDetail {...itemProps} /> : <div>Loading...</div>;
+  }, [id, itemPreviewProps]);
+
+  useEffect(() => {
+    console.log(itemDetailProps);
+  }, [itemDetailProps]);
+
+  return !loading ? <ItemDetail {...itemDetailProps} /> : <div>Loading...</div>;
 };
