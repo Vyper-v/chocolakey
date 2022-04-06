@@ -6,7 +6,6 @@ import { Route, Routes } from "react-router-dom";
 import { ProductsScreen } from "./ProductsScreen";
 import { Cart } from "components/Cart/Cart";
 import { CartProvider } from "context/CartContext";
-import { AdminScreen } from "🔥base/AdminScreen";
 import { ItemProvider } from "context/ItemContext";
 
 export const AppRouter = () => {

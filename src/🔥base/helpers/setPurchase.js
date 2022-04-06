@@ -1,6 +1,6 @@
-import { collection, setDoc } from "firebase/firestore";
+import { addDoc, collection } from "firebase/firestore";
 
 export async function setPurchase(db, user, items) {
   const purchasesRef = collection(db, "purchases");
-  await setDoc(purchasesRef, {user, items});
+  await addDoc(purchasesRef, { user, items });
 }

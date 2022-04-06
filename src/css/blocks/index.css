@@ -6,5 +6,6 @@
   @import "./item.css";
   @import "./item-detail.css";
   @import "./item-count.css";
+  @import "./cart.css";
   @import "./cartwidget.css";
 }
