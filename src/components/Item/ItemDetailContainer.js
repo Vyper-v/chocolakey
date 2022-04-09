@@ -26,9 +26,5 @@ export const ItemDetailContainer = () => {
       });
   }, [id, itemPreviewProps]);
 
-  useEffect(() => {
-    console.log(itemDetailProps);
-  }, [itemDetailProps]);
-
   return !loading ? <ItemDetail {...itemDetailProps} /> : <div>Loading...</div>;
 };

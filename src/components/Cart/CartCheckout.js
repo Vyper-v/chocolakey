@@ -19,15 +19,36 @@ export const CartCheckout = () => {
   };
 
   return (
-    <div>
-      <form onSubmit={handleSubmit}>
+    <div className="flex gap-size-0">
+      <form
+        onSubmit={handleSubmit}
+        className="flex flex-col items-start gap-size-0"
+      >
         <label htmlFor="full-name">Name</label>
-        <input type="text" name="name" id="full-name" required />
+        <input
+          className="rounded bg-gray-50 focus:outline-none focus:bg-gray-200"
+          type="text"
+          name="name"
+          id="full-name"
+          required
+        />
         <label htmlFor="email-user">Email</label>
-        <input type="email" name="email" id="email-user" required />
+        <input
+          className="rounded bg-gray-50 focus:outline-none focus:bg-gray-200"
+          type="email"
+          name="email"
+          id="email-user"
+          required
+        />
         <label htmlFor="phone-user">Phone</label>
-        <input type="tel" name="phone" id="phone-user" required />
-        <button type="submit">Checkout</button>
+        <input
+          className="rounded bg-gray-50 focus:outline-none focus:bg-gray-200"
+          type="tel"
+          name="phone"
+          id="phone-user"
+          required
+        />
+        <button type="submit" className="bg-black text-white">Checkout</button>
       </form>
     </div>
   );

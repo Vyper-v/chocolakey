@@ -5,8 +5,8 @@
 html {
   @apply scroll-smooth;
 }
-body {
-  @apply bg-light text-dark text-size-1 font-sans;
+body,#root {
+  @apply h-screen bg-light text-dark text-size-1 font-sans;
 }
 
 h1,
