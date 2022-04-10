@@ -1,5 +1,7 @@
+const colors = require("tailwindcss/colors");
+const orange = colors.orange["500"];
 module.exports = {
-  content: ["./src/**/*.{js,jsx,ts,tsx}"],
+  content: ["./src/**/*.{js,jsx,ts,tsx}", "./public/*.html", "./assets/svg/*.svg"],
   theme: {
     extend: {
       screens: {
@@ -10,7 +12,7 @@ module.exports = {
         "2xl": "1536px",
       },
       colors: {
-        primary: "#ff5400",
+        primary: orange,
         secondary: "#86c7f0",
         light: "#f3f3f3",
         dark: "#252525",

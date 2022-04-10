@@ -13,6 +13,7 @@
 /**/custom-props.css
 
 # misc
+.vscode
 .DS_Store
 .env.local
 .env.development.local

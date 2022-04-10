@@ -1,9 +1,22 @@
 import { MenuIcon } from "@heroicons/react/solid";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 export const BurgerMenu = ({ listItems }) => {
   const [isOpen, setIsOpen] = useState(window.visualViewport.width > 768);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsOpen(window.visualViewport.width > 768);
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
   return (
     <div className="burger-menu">
       <button onClick={() => setIsOpen(!isOpen)}>
