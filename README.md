@@ -38,6 +38,7 @@ Receive an optional `Array` as parameter. If it is passed, it will be used as th
 #### Return value
 
 - `cart`: The cart state
+- `setCart`: A function to change the cart state
 - `addToCart`: A function to add an item to the cart
 - `removeFromCart`: A function to remove an item from the cart
 - `updateItem`: A function to update an item in the cart

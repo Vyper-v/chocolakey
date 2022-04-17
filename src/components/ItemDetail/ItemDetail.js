@@ -20,7 +20,7 @@ export const ItemDetail = ({
   ingredients,
   measures,
 }) => {
-  const { addToCart } = useContext(CartContext);
+  const { addToCart, setCart } = useContext(CartContext);
   const navigate = useNavigate();
   const [cartData, setCartData] = useState({
     idMeal,
@@ -40,7 +40,7 @@ export const ItemDetail = ({
 
   const handleBuyNow = (e) => {
     e.preventDefault();
-    addToCart(cartData);
+    setCart([{ ...cartData, quantity: 1 }]);
     navigate("/cart");
   };
 

@@ -39,6 +39,7 @@ export const useCart = (cartStorage) => {
 
   return {
     cart,
+    setCart,
     isInCart,
     addToCart,
     removeFromCart,
