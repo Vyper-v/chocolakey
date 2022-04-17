@@ -99,9 +99,9 @@ export const PairCounter = () => {
     }, 2);
   };
 
-  const customIncrement = () => {
-    increment((counterIncremented) => {
-      console.log(`Incremented: ${counterIncremented}`);
+  const customDecrement = () => {
+    decrement((counterDecremented) => {
+      console.log(`Decremented: ${counterDecremented}`);
     }, 2);
   };
 
