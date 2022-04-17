@@ -5,7 +5,8 @@
 
 ## Pre-requisites
 
-- Node
+- NodeJS
+- npm
 - Firebase - Firestore
 
 ## Commands
