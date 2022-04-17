@@ -1,0 +1,10 @@
+.navbar{
+  @apply flex flex-wrap justify-between p-size-0 items-center;
+}
+
+.navbar ul li{
+  @apply active:text-primary;
+}
+.navbar h1{
+  @apply text-size-2 font-mono;
+}

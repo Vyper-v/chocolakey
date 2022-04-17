@@ -1,0 +1,24 @@
+@import "item.css";
+@import "checkout.css";
+
+
+:is(.cart,.sidebar) {
+  @apply md:flex-row h-full min-h-full;
+}
+
+:is(.cart, .sidebar) .items {
+  @apply bg-gray-200 flex-nowrap flex-col items-start;
+  /* use cluster composition */
+}
+
+:is(.cart, .sidebar) .panel {
+  @apply p-size-0 space-y-size-0;
+}
+
+:is(.cart, .sidebar) .panel .emptyCart {
+  @apply flex gap-size-0 text-red-500 items-center capitalize;
+}
+
+:is(.cart, .sidebar) .panel .emptyCart button {
+  @apply border-red-500 bg-red-200;
+}

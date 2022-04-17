@@ -1,0 +1,6 @@
+.cart-item{
+ @apply p-size-0 flex justify-between flex-wrap items-center;
+}
+.cart-item .buttons{
+  @apply flex items-center grow;
+}

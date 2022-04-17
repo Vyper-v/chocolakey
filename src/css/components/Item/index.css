@@ -1,0 +1,11 @@
+@import "preview.css";
+@import "count.css";
+@import "detail.css";
+
+.item-name {
+  @apply bg-orange-300;
+}
+
+.item-price {
+  @apply bg-teal-400;
+}
