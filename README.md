@@ -3,6 +3,23 @@
 > This project is only a prototype for studying ReactJS in [Coderhouse](https://coderhouse.com)<br>
 > If you liked the idea, contact me to <davidgomez2924@gmail.com><br>
 
+## Pre-requisites
+
+- Node
+- Firebase - Firestore
+
+## Commands
+
+### Development
+```sh
+npm start
+```
+
+### Build
+```sh
+npm run build
+```
+
 ## Documentation
 
 ### `<CartContext/>`
