@@ -1,14 +1,8 @@
-@import "./global.css";
 
-/* Compositions */
-@import "compositions";
 
-/* Blocks */
-@import "blocks";
-
-/* Utilities */
-@import "utilities";
-
-/* Tailwind utilities */
 @import "tailwindcss/utilities";
 
+@import "./global.css";
+@import "./components";
+@import "./compositions";
+@import "./utilities";

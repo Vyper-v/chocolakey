@@ -1,8 +1,7 @@
-import { TrashIcon } from "@heroicons/react/solid";
+import { CartPanel } from "./CartPanel";
 import { CartContext } from "context/CartContext";
 import { useContext } from "react";
-import { Link } from "react-router-dom";
-import { CartCheckout } from "./CartCheckout";
+import { CartEmpty } from "./CartEmpty";
 import { CartItem } from "./CartItem";
 
 export const Cart = () => {
@@ -26,48 +25,24 @@ export const Cart = () => {
   const handleRemove = (idMeal) => removeFromCart(idMeal);
 
   return (
-    <div className="flex flex-col md:flex-row h-full min-h-full">
-      <div className="cluster grow bg-gray-200 content-start">
-        {cart &&
-          cart.map(({ idMeal, strMeal, price, quantity, stock }) => (
-            <CartItem
-              key={idMeal}
-              data={{
-                idMeal,
-                strMeal,
-                price,
-                quantity,
-                stock,
-                handleDecrement,
-                handleIncrement,
-                handleRemove,
-              }}
-            />
-          ))}
-
-        {cart.length === 0 && (
-          <p className="mx-auto">
-            Your cart is empty. Back to{" "}
-            <Link to="/" replace className="underline">
-              Home
-            </Link>
-          </p>
-        )}
+    <div className="sidebar" data-direction="rtl">
+      <div className="cluster | items">
+        {cart?.map((itemCart) => (
+          <CartItem
+            key={itemCart.idMeal}
+            {...{
+              ...itemCart,
+              handleDecrement,
+              handleIncrement,
+              handleRemove,
+            }}
+          />
+        ))}
       </div>
-      {cart.length !== 0 && (
-        <div className="p-size-0 space-y-size-0">
-          <div className="flex gap-size-0 text-red-500 items-center capitalize">
-            <button
-              onClick={() => clear()}
-              className="border-red-500 bg-red-200 "
-            >
-              <TrashIcon />
-            </button>
-            <p>empty cart</p>
-          </div>
-          {cart && <h3>Total: {getTotalPrice()}</h3>}
-          <CartCheckout />
-        </div>
+      {cart?.length !== 0 ? (
+        <CartPanel clear={clear} getTotalPrice={getTotalPrice} />
+      ) : (
+        <CartEmpty />
       )}
     </div>
   );

@@ -1,5 +1,5 @@
 import { CartContext } from "context/CartContext";
-import { doc, updateDoc } from "firebase/firestore";
+import { doc, updateDoc, increment } from "firebase/firestore";
 import React, { useContext } from "react";
 import db from "🔥base/db";
 import { setPurchase } from "🔥base/helpers/setPurchase";
@@ -11,10 +11,13 @@ export const CartCheckout = () => {
     e.preventDefault();
     const user = Object.fromEntries(new FormData(e.target));
     setPurchase(db, user, cart);
-    cart.forEach(async (item) => {
-      const docRef = doc(db, "previews", item.idMeal);
-      await updateDoc(docRef, { stock: item.stock - item.quantity });
-    });
+    (async () => {
+      for (const item of cart) {
+        const docRef = doc(db, "previews", item.idMeal);
+        await updateDoc(docRef, { stock: increment(-1 * item.quantity) });
+      }
+    })();
+
     clear();
   };
 
@@ -48,7 +51,9 @@ export const CartCheckout = () => {
           id="phone-user"
           required
         />
-        <button type="submit" className="bg-black text-white">Checkout</button>
+        <button type="submit" className="bg-black text-white">
+          Checkout
+        </button>
       </form>
     </div>
   );

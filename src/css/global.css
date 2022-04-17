@@ -5,7 +5,8 @@
 html {
   @apply scroll-smooth;
 }
-body,#root {
+body,
+#root {
   @apply h-screen bg-light text-dark text-size-1 font-sans;
 }
 
@@ -89,7 +90,6 @@ svg {
 ::-webkit-scrollbar {
   @apply w-3 h-3;
 }
-
 
 ::-webkit-scrollbar-thumb {
   @apply bg-gray-300 rounded-full;

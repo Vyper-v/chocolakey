@@ -19,6 +19,6 @@ export function useCounter({
       setCounter(counter - factor);
     }
   }
-  const resetCounter = () => setCounter(initial);
-  return { counter, increment, decrement, resetCounter };
+  const reset = () => setCounter(initial);
+  return { counter, increment, decrement, reset };
 }
